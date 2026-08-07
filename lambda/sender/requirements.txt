@@ -1,0 +1,6 @@
+pyarrow>=14.0.1
+boto3>=1.35.10 
+awswrangler
+pandas
+notifications-python-client>=10.0.1
+markdown

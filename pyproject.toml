@@ -1,0 +1,50 @@
+[project]
+name = "gds-idea-ezemails"
+version = "0.1.0"
+authors = [
+    {name = "Jose Orjales", email = "jose.orjales@digital.cabinet-office.gov.uk"},
+    {name = "George Kevin D'Silva", email = "george.dsilva@digital.cabinet-office.gov.uk"},
+]
+description = "Email processing made easy"
+readme = "docs/README.md"
+requires-python = ">=3.13"
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "aws-cdk-aws-lambda-python-alpha>=2.182.0a0",
+    "aws-cdk-lib>=2.154.1",
+    "awswrangler>=3.10.1",
+    "boto3>=1.35.10",
+    "cdklabs-generative-ai-cdk-constructs>=0.1.308",
+    "constructs>=10.0.0,<11.0.0",
+    "ipykernel>=6.29.5",
+    "pyarrow>=19.0.1",
+]
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-cov>=6.0.0",
+]
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocs-glightbox",
+    "mkdocstrings[python]>=0.28.0"
+    ]
+
+[project.urls]
+Homepage = "https://github.com/co-cddo/gds-idea-ezcomms"
+Repository = "https://github.com/co-cddo/gds-idea-ezcomms"
+Issues = "https://github.com/co-cddo/gds-idea-ezcomms/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

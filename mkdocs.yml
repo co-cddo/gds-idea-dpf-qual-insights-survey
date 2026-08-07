@@ -1,0 +1,103 @@
+site_name: EZComms
+site_url: https://co-cddo.github.io/gds-ideas-ezcomms/
+theme: 
+  name: material
+  palette:
+      # Light mode
+      - media: "(prefers-color-scheme: light)"
+        scheme: default
+        primary: indigo
+        accent: indigo
+        toggle:
+          icon: material/brightness-7
+          name: Switch to dark mode
+      # Dark mode
+      - media: "(prefers-color-scheme: dark)"
+        scheme: slate
+        primary: indigo
+        accent: indigo
+        toggle:
+          icon: material/brightness-2
+          name: Switch to light mode
+  features:
+      - navigation.left
+      - navigation.expand
+      - navigation.top
+      - search.suggest
+      - search.highlight
+      - toc.follow
+repo_name: EZComms
+repo_url: https://github.com/co-cddo/gds-idea-ezcomms
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - toc:
+        permalink: true
+
+plugins:
+  - glightbox
+  - search 
+  - mkdocstrings:
+        default_handler: python
+        handlers:
+          python:
+            paths: [.]
+            options:
+              show_root_heading: true
+              show_category_heading: true 
+              show_submodules: true
+              docstring_style: google
+              show_source: false
+              show_if_no_docstring: false
+              heading_level: 2
+              # False means only show the class/module itself, not all its methods/attributes, which is a problem for stacks
+              members: false
+              # Don't show members inherited from parent classes
+              inherited_members: false
+              # Don't show the full import path for members
+              show_root_members_full_path: false
+              # Format for docstring sections (list or table)
+              docstring_section_style: list
+              # Order members by their appearance in source code
+              members_order: source
+              # Display function signatures separately from descriptions
+              separate_signature: true
+              # Simplify type annotations in signatures
+              unwrap_annotated: true
+              # Filter which members to show - this hides private (_x) and special methods (__x__)
+              filters: ["!^_[^_]", "!^__"]
+
+nav:
+  - Home: README.md
+  - Architecture:
+      - Overview: architecture/overview.md
+  - Guides:
+      - Configuration: guides/configuration.md
+      - Deployment: guides/deployment.md
+  - Reference:
+      - Stacks:
+          - Storage: reference/storage.md
+          - Incoming:
+              - SES Infrastructure: reference/incoming/ses_infra.md
+              - Incoming Email Handling Layer: reference/incoming/ses_layer.md 
+              - Incoming Emails S3 Bucket: reference/incoming/ses_s3.md
+              - Simple Notification Service: reference/incoming/ses_sns.md
+          - LLM:
+              - Knowledge Base: reference/llm/knowledge_base.md
+              - LLM Docker Image: reference/llm/llm_image.md
+              - LLM Lambda Functions: reference/llm/llm_lambda.md
+              - LLM Storage: reference/llm/llm_storage.md
+          - Outgoing:
+              - Outgoing Lambda: reference/outgoing/outgoing_lambda.md
+              - Sender Image: reference/outgoing/sender_image.md
+
+watch:
+  - stacks
